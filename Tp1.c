@@ -25,20 +25,20 @@ int longitud(char palabra[])
     return contador;
 }
 
-    char *amayuscula(char *mipalabra, int largo){
-        char *punteromayus;
+char *amayuscula(char *mipalabra, int largo)
+{
+    char *punteromayus;
         
-        for (int i = 0; i < largo; i++){
-        char *punteroamayus = &mipalabra[i];
+    for (int i = 0; i < largo; i++){
+    char *punteroamayus = &mipalabra[i];
 
-        if (*punteroamayus < 41 && *punteroamayus > 90)
-        {
-        *punteroamayus = *punteroamayus+32;
-        }
-
+    if (*punteroamayus < 41 && *punteroamayus > 90)
+    {
+        *punteroamayus = *punteroamayus-32;
+    }
     return punteroamayus;
     }
-    }
+}
 
 
 int main()
