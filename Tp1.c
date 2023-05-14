@@ -26,19 +26,15 @@ int longitud(char palabra[])
 }
 
 char *amayuscula(char *mipalabra, int largo)
-{
-    char *punteromayus;
-        
+{   
     for (int i = 0; i < largo; i++){
-    char *punteroamayus = &mipalabra[i];
-
-    if (*punteroamayus < 41 && *punteroamayus > 90)
-    {
-        *punteroamayus = *punteroamayus-32;
+        if (mipalabra[i] >= 'a' && mipalabra[i] <= 'z'){
+            mipalabra[i] = mipalabra[i] - 32;
+        }
     }
-    return punteroamayus;
-    }
+    return mipalabra;
 }
+
 
 
 int main()
@@ -61,20 +57,34 @@ int main()
 
     printf("'%s' tiene el valor %d\n", punteropalabra, *punteropalabra);
     }
+    
 */
 
     for (int i = 0; i < largopalabra; i++)
     {
     char *punteropalabra = &palabra[i];
 
-    printf("'%s' tiene el valor %d\n", punteropalabra, *punteropalabra);
+    printf("'%s' tiene el valor %d\n\n", punteropalabra, *punteropalabra);
     }
+
+    
 
     // c) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula. 
 
+    char micadena[] = "estoy en mayus";
+    // Le pase una cadena nueva porque con palabra se rompe
+
     char *estoyenmayus;
-    estoyenmayus = amayuscula(palabra, largopalabra);
-    printf("\n Hola, deberia estar en mayuscula: %s", estoyenmayus);
+
+    estoyenmayus = amayuscula(micadena, longitud(micadena));
+    
+    printf("Hola, deberia estar en mayuscula: %s",estoyenmayus);
+
+    // d) Eliminar de una cadena dada todas las ocurrencias de un caracter dado. 
+
+
+
+
 
   return 0;
 }
