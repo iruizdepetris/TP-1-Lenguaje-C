@@ -42,6 +42,18 @@ void eliminarOcurrenciasDeChar(char *cadena, char caracter, int largo) {
   }
 }
 
+char *concatenar(char *destino, char *elOtro)
+{
+    int i=longitud(destino);
+    int j=0;
+    int contador=i+longitud(elOtro);
+    while(i<=contador) {
+        destino[i]=elOtro[j];
+        i++;
+        j++;
+    }
+}
+
 int main() {
   // a) Calcular y retornar la longitud de una cadena dada.
   int largopalabra;
@@ -91,6 +103,18 @@ int main() {
   eliminarOcurrenciasDeChar(micadena2, caracter, longitud(micadena2));
 
   printf("Frase sin 'a': %s", micadena2);
+
+  //e) Concatenar al final de la primera cadena dada una segunda cadena también dada.
+
+  char segundaPalabra[50], primerPalabra[50];
+
+  concatenar(segundaPalabra,  " y esta sera la segunda parte.");
+  concatenar(primerPalabra, "Esta es la primera parte");
+
+  concatenar(primerPalabra, segundaPalabra);
+
+  printf("Palabra concatenada : %s", primerPalabra);
+
 
   return 0;
 }
