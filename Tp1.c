@@ -23,6 +23,34 @@ int longitud(char palabra[]) {
   return contador;
 }
 
+//funciones punto b
+int numeroEquivalente (char caracter[]){
+
+    int numerosEqv[longitud(caracter)];
+    int numeroFinal = 0;
+
+    for(int i = 0; i<longitud(caracter); i++){
+        if(caracter[i] >= 48 && caracter[i]<=57){
+            numerosEqv[i] = caracter[i] - '0';
+        }else{
+            numerosEqv[i] = 0;
+        }
+    }
+    for(int i = 1; i<=longitud(caracter); i++){
+        numeroFinal+=(potencia(10, longitud(caracter)-i)*numerosEqv[i-1]);
+    }
+    return numeroFinal;
+}
+//funcion potencia sirve para la funcion numeroEquivalente
+int potencia(int numero, int veces){
+    if(veces == 0){
+        return 1;
+    }else{
+        return numero*potencia(numero, veces-1);
+    }
+}
+//fin funciones punto b
+
 char *amayuscula(char *mipalabra, int largo) {
   for (int i = 0; i < largo; i++) {
     if (mipalabra[i] >= 'a' && mipalabra[i] <= 'z') {
@@ -72,6 +100,7 @@ int main() {
   printf("El resultado es %d\n", largopalabra);
 
   // b) Convertir una cadena de dígitos en su equivalente numérico.
+
 
   /* Quizás conviene hacerlo con la palabra definida como char palabra[]? así:
 
