@@ -100,6 +100,8 @@ int main() {
   printf("El resultado es %d\n", largopalabra);
 
   // b) Convertir una cadena de dígitos en su equivalente numérico.
+  char cadenaDigitos[] = "2023";
+  printf("El numero de la cadena %s es: %d ", cadenaDigitos, numeroEquivalente(cadenaDigitos));
 
 
   /* Quizás conviene hacerlo con la palabra definida como char palabra[]? así:
