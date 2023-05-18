@@ -51,16 +51,17 @@ int potencia(int numero, int veces){
 }
 //fin funciones punto b
 
-char *amayuscula(char *mipalabra, int largo) {
-  for (int i = 0; i < largo; i++) {
+void amayuscula(char *mipalabra) {
+int largo=longitud(mipalabra);
+  for (int i = 0; i <= largo; i++) {
     if (mipalabra[i] >= 'a' && mipalabra[i] <= 'z') {
       mipalabra[i] = mipalabra[i] - 32;
     }
   }
-  return mipalabra;
 }
 
-void eliminarOcurrenciasDeChar(char *cadena, char caracter, int largo) {
+void eliminarOcurrenciasDeChar(char *cadena, char caracter) {
+int largo=longitud(cadena);
   for (int i = 0; i < largo - 1; i++) {
     if (cadena[i] == caracter) {
       for (int j = i; j < largo - 1; j++) {
@@ -70,7 +71,7 @@ void eliminarOcurrenciasDeChar(char *cadena, char caracter, int largo) {
   }
 }
 
-char *concatenar(char *destino, char *elOtro)
+void concatenar(char *destino, char *elOtro)
 {
     int i=longitud(destino);
     int j=0;
@@ -82,16 +83,35 @@ char *concatenar(char *destino, char *elOtro)
     }
 }
 
-char *clavar(char *palabra, char caracter, int posicion)
+void insertar(char *palabra, char caracter, int posicion)
 {
   int contador=longitud(palabra);
   if (contador<posicion)
     printf("La posicion indicada no esta disponible");
   else
   {
+for (int i=0; i<=contador; i++)
+{
+if (i==posicion)
+{
+for (int j=; j<=contador+1; j++)
+{
+if (palabra[j]!=posicion)
+{
+palabra[j]=palabra[j];
+}
+else
+{
+palabra[j]=caracter;
+j++;
+}
+}
+}
+}
     palabra[posicion]=caracter;
   }
 }
+
 int main() {
   // a) Calcular y retornar la longitud de una cadena dada.
   int largopalabra;
