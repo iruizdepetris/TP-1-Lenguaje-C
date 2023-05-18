@@ -51,13 +51,14 @@ int potencia(int numero, int veces){
 }
 //fin funciones punto b
 
-void amayuscula(char *mipalabra) {
-int largo=longitud(mipalabra);
-  for (int i = 0; i <= largo; i++) {
-    if (mipalabra[i] >= 'a' && mipalabra[i] <= 'z') {
-      mipalabra[i] = mipalabra[i] - 32;
+void convertirAMayusculas(char* cadena) {
+    int i = 0;
+    while (cadena[i] != '\0') {
+        if (cadena[i] >= 'a' && cadena[i] <= 'z') {
+            cadena[i] = cadena[i] - 'a' + 'A';
+        }
+        i++;
     }
-  }
 }
 
 void eliminarOcurrenciasDeChar(char *cadena, char caracter) {
@@ -83,33 +84,13 @@ void concatenar(char *destino, char *elOtro)
     }
 }
 
-void insertar(char *palabra, char caracter, int posicion)
-{
-  int contador=longitud(palabra);
-  if (contador<posicion)
-    printf("La posicion indicada no esta disponible");
-  else
-  {
-for (int i=0; i<=contador; i++)
-{
-if (i==posicion)
-{
-for (int j=; j<=contador+1; j++)
-{
-if (palabra[j]!=posicion)
-{
-palabra[j]=palabra[j];
-}
-else
-{
-palabra[j]=caracter;
-j++;
-}
-}
-}
-}
-    palabra[posicion]=caracter;
-  }
+void insertarCaracter(char* cadena, char caracter, int posicion) {
+    int longitud = calcularLongitud(cadena);
+    int i;
+    for (i = longitud; i >= posicion; i--) {
+        cadena[i + 1] = cadena[i];
+    }
+    cadena[posicion] = caracter;
 }
 
 int main() {
@@ -152,16 +133,16 @@ int main() {
 
   char *estoyenmayus;
 
-  estoyenmayus = amayuscula(micadena, longitud(micadena));
+  convertirAMayusculas(micadena);
 
-  printf("Hola, deberia estar en mayuscula: %s", estoyenmayus);
+  printf("Hola, deberia estar en mayuscula: %s", micadena);
 
   // d) Eliminar de una cadena dada todas las ocurrencias de un caracter dado.
 
   char caracter = 'a';
   char micadena2[] = "me falta una letra \n";
 
-  eliminarOcurrenciasDeChar(micadena2, caracter, longitud(micadena2));
+  eliminarOcurrenciasDeChar(micadena2, caracter);
 
   printf("Frase sin 'a': %s", micadena2);
 
@@ -181,7 +162,7 @@ int main() {
   char palabraPrueba[]="La letra A deberia ser reemplazada por una o\n";
   char letra='o';
 
-  clavar(palabraPrueba,letra,9);
+  insertarCaracter(palabraPrueba,letra,9);
 
   printf("%s", palabraPrueba);
 
